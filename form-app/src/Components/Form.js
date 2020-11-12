@@ -78,7 +78,7 @@ export default function Form(prop){
             </label>
             {errors.termsOfService ? <div>{errors.termsOfService}</div> : ""}
             <br/>
-            <button>Submit</button>
+            <button id="submitBtn">Submit</button>
         </form>
 
     )

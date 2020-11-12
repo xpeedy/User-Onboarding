@@ -12,9 +12,9 @@ export default yup.object().shape({
     .required("must include email address"),
     password: yup
     .string()
-    .required("please enter password")
-    .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-    "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"),
+    .required("please enter password"),
+    // .matches(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+    // "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"),
     termsOfService: yup
     .boolean()
     .oneOf([true], "please agree to the terms")
