@@ -2,6 +2,7 @@ import React from "react"
 import schema from "../Validation/schema"
 import * as yup from "yup"
 import {useState, useEffect} from "react"
+import axios from "axios"
 
 const initialValues = {
     name: "",
@@ -17,7 +18,8 @@ const initialValues = {
     termsOfService: "",
   }
 
-export default function Form(){
+
+export default function Form(prop){
     const [values, setValues] = useState(initialValues);
     const [errors, setErrors] = useState(initialErrors);
 
@@ -40,9 +42,22 @@ export default function Form(){
 
     }
 
+    function Submitting(e){
+        e.preventDefault()
+        axios
+        .post(`https://reqres.in/api/users`, values)
+        .then((res) => {
+            prop.userfunc(res.data);
+            console.log(res)
+            setValues(initialValues);
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
 
     return(
-        <form>
+        <form onSubmit={Submitting}>
             <label>Name
                 <input type="text" name="name" value={values.name} onChange={Change}/>
             </label>
