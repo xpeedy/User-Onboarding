@@ -55,6 +55,10 @@ export default function Form(prop){
             console.log(err)
         })
     }
+    //not working
+    function isDisabled(){
+        return !values.name.trim() || !values.email.trim() || !values.password.trim()
+      }
 
     return(
         <form onSubmit={Submitting}>
@@ -78,7 +82,7 @@ export default function Form(prop){
             </label>
             {errors.termsOfService ? <div>{errors.termsOfService}</div> : ""}
             <br/>
-            <button id="submitBtn">Submit</button>
+            <button id="submitBtn" disabled={isDisabled()}>Submit</button>
         </form>
 
     )

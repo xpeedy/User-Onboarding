@@ -51,10 +51,59 @@ describe('goes to the website', function () {
         .uncheck()
     });
 
+    
+
+    it("cant submit if box blank", () => {
+        submitBtn()
+        .should("be.disabled");
+        nameInput()
+        .should("have.value", "");
+        emailInput()
+        .should("have.value", "");
+        passwordInput()
+        .should("have.value", "");
+        submitBtn()
+        .should("be.disabled");
+        nameInput()
+        .type("tania")
+        .should("have.value", "tania");
+        submitBtn()
+        .should("be.disabled");
+        emailInput()
+        .type("tania@tania.com")
+        .should("have.value", "tania@tania.com");
+        submitBtn()
+        .should("be.disabled");
+        passwordInput()
+        .type("mynameistania")
+        .should("have.value", "mynameistania");
+        submitBtn()
+        .should("be.not.disabled")
+        // .click();
+    });
+
     it("can submit", () => {
+        nameInput()
+        .should("have.value", "")
+        .type("tania")
+        .should("have.value", "tania");
+
+        emailInput()
+        .should("have.value", "")
+        .type("tania@tania.com")
+        .should("have.value", "tania@tania.com");
+
+        passwordInput()
+        .should("have.value", "")
+        .type("mynameistania")
+        .should("have.value", "mynameistania");
+
+        termsOsInput()
+        .check();
         submitBtn()
         .click()
-    })
+    });
+
 
     
        
