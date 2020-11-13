@@ -62,17 +62,17 @@ export default function Form(prop){
 
     return(
         <form onSubmit={Submitting}>
-            <label>Name
+            <label><h3>Name</h3>
                 <input type="text" name="name" value={values.name} onChange={Change}/>
             </label>
             {errors.name ? <div>{errors.name}</div> : ""}
             <br/>
-            <label>Email
+            <label><h3>Email</h3>
                 <input type="email" name="email" value={values.email} onChange={Change}/>
             </label>
             {errors.email ? <div>{errors.email}</div> : ""}
             <br/>
-            <label>Password
+            <label><h3>Password</h3>
                 <input type="password" name="password" value={values.password} onChange={Change}/>
             </label>
             {errors.password ? <div>{errors.password}</div> : ""}
